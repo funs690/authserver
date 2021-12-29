@@ -8,4 +8,4 @@
  * 数据装配层
  *
  */
-package com.zjuici.ddd.Interfaces.assember;
+package com.zjuici.authserver.Interfaces.assember;

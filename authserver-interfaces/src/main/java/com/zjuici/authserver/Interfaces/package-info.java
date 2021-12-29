@@ -11,4 +11,4 @@
  * 3. facade
  *
  */
-package com.zjuici.ddd.Interfaces;
+package com.zjuici.authserver.Interfaces;

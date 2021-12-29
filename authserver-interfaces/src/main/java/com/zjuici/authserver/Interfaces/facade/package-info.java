@@ -8,4 +8,4 @@
  * 接口层
  *
  */
-package com.zjuici.ddd.Interfaces.facade;
+package com.zjuici.authserver.Interfaces.facade;

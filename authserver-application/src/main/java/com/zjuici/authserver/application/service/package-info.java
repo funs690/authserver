@@ -9,4 +9,4 @@
  * 包括对内、对外及外部引用等服务信息
  *
  */
-package com.zjuici.ddd.application.service;
+package com.zjuici.authserver.application.service;

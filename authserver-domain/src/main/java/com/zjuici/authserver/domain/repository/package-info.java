@@ -8,4 +8,4 @@
  * 持久化对象方法
  *
  */
-package com.zjuici.ddd.domain.repository;
+package com.zjuici.authserver.domain.repository;

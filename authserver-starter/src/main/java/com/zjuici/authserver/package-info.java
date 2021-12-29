@@ -7,4 +7,4 @@
  * spring boot starter
  *
  */
-package com.zjuici.ddd;
+package com.zjuici.authserver;

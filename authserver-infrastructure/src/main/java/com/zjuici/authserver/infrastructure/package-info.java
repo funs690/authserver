@@ -10,4 +10,4 @@
  * 2. 为领域层提供持久化机制（最底层实现, 数据持久化等）
  * 3. 为用户界面层提供组件配置
  */
-package com.zjuici.ddd.infrastructure;
+package com.zjuici.authserver.infrastructure;

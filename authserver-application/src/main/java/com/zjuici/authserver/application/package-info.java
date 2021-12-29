@@ -12,4 +12,4 @@
  * 4. 系统任务
  *
  */
-package com.zjuici.ddd.application;
+package com.zjuici.authserver.application;

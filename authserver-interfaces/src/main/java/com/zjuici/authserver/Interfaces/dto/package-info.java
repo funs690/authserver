@@ -8,4 +8,4 @@
  * 传输数据打层
  *
  */
-package com.zjuici.ddd.Interfaces.dto;
+package com.zjuici.authserver.Interfaces.dto;

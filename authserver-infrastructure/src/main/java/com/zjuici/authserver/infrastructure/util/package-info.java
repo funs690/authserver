@@ -9,4 +9,4 @@
  *
  *
  */
-package com.zjuici.ddd.infrastructure.util;
+package com.zjuici.authserver.infrastructure.util;

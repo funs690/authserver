@@ -11,4 +11,4 @@
  *
  *
  */
-package com.zjuici.ddd.domain.aggregates;
+package com.zjuici.authserver.domain.aggregates;

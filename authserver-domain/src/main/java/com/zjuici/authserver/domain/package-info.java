@@ -14,4 +14,4 @@
  * 6. 仓储（Repository）： 提供查找和持久化对象的方法
  *
  */
-package com.zjuici.ddd.domain;
+package com.zjuici.authserver.domain;

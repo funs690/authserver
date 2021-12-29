@@ -8,4 +8,4 @@
  * 实体信息层
  *
  */
-package com.zjuici.ddd.domain.entity;
+package com.zjuici.authserver.domain.entity;

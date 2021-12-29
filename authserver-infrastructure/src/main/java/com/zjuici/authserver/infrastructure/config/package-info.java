@@ -8,4 +8,4 @@
  * 基础配置层
  *
  */
-package com.zjuici.ddd.infrastructure.config;
+package com.zjuici.authserver.infrastructure.config;

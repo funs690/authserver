@@ -8,4 +8,4 @@
  * 数据持久化层
  *
  */
-package com.zjuici.ddd.infrastructure.persistent;
+package com.zjuici.authserver.infrastructure.persistent;

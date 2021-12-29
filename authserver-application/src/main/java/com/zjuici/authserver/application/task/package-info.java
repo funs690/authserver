@@ -8,4 +8,4 @@
  * 任务信息
  *
  */
-package com.zjuici.ddd.application.task;
+package com.zjuici.authserver.application.task;

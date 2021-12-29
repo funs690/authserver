@@ -8,4 +8,4 @@
  * 服务信息层
  *
  */
-package com.zjuici.ddd.domain.service;
+package com.zjuici.authserver.domain.service;

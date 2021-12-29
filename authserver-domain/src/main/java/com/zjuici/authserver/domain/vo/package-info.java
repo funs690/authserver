@@ -8,4 +8,4 @@
  * 数值对象层
  *
  */
-package com.zjuici.ddd.domain.vo;
+package com.zjuici.authserver.domain.vo;
