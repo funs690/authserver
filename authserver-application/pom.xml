@@ -19,11 +19,27 @@
     </properties>
 
     <dependencies>
+
+        <!-- infrastructure -->
+        <dependency>
+            <groupId>com.zjuici</groupId>
+            <artifactId>authserver-infrastructure</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- domain -->
         <dependency>
             <groupId>com.zjuici</groupId>
             <artifactId>authserver-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- spring auth server -->
+        <dependency>
+            <groupId>org.springframework.security.experimental</groupId>
+            <artifactId>spring-security-oauth2-authorization-server</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

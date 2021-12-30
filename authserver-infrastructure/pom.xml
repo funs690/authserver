@@ -19,6 +19,14 @@
     </properties>
 
     <dependencies>
+
+        <!-- domain -->
+        <dependency>
+            <groupId>com.zjuici</groupId>
+            <artifactId>authserver-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
