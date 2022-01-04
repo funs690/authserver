@@ -2,4 +2,31 @@ server:
   port: 80
 
 logging:
-  config: classpath:log4j2.xml
+ config: classpath:log4j2.xml
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://183.129.217.214:20080/authserverdb
+    username: authserver
+    password: Abc123++
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 100
+  redis:
+    database: 3
+    host: 183.129.217.214
+    port: 20192
+    password: QAZwsx123++
+    timeout: 3000
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 50
+        min-idle: 10
+        time-between-eviction-runs: 60000
+
+# myBatis配置
+mybatis:
+  mapper-locations: classpath*:/mybatis/*.xml
