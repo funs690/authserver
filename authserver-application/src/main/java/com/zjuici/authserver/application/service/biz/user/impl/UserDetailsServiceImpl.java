@@ -1,4 +1,4 @@
-package com.zjuici.authserver.application.service.biz.impl;
+package com.zjuici.authserver.application.service.biz.user.impl;
 
 import com.zjuici.authserver.domain.entity.User;
 import com.zjuici.authserver.domain.repository.UserRepository;
