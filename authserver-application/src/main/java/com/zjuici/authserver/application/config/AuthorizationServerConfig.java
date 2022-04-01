@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.config.annotation.web.configurers.oauth2.server.authorization.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationConsentService;
 import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationService;
@@ -21,6 +22,7 @@ import org.springframework.security.oauth2.server.authorization.client.JdbcRegis
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -45,7 +47,22 @@ public class AuthorizationServerConfig {
     @Order(Ordered.HIGHEST_PRECEDENCE)
     @Bean
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        //OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        // 配置默认的http basic converter
+        OAuth2AuthorizationServerConfigurer<HttpSecurity> authorizationServerConfigurer =
+                new OAuth2AuthorizationServerConfigurer<>();
+        authorizationServerConfigurer.clientAuthentication(clientAuthentication -> clientAuthentication
+                .authenticationConverter(new ClientSecretBasicAuthenticationConverter()));
+        RequestMatcher endpointsMatcher = authorizationServerConfigurer
+                .getEndpointsMatcher();
+        http
+                .requestMatcher(endpointsMatcher)
+                .authorizeRequests(authorizeRequests ->
+                        authorizeRequests.anyRequest().authenticated()
+                )
+                .csrf(csrf -> csrf.ignoringRequestMatchers(endpointsMatcher))
+                .apply(authorizationServerConfigurer);
+
         return http.formLogin(Customizer.withDefaults()).build();
     }
 

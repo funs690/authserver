@@ -51,26 +51,26 @@ create table oauth2_authorization (
     registered_client_id varchar(100) not null,
     principal_name varchar(200) not null,
     authorization_grant_type varchar(100) not null,
-    attributes varchar(4000) default null,
+    attributes text default null,
     state varchar(500) default null,
-    authorization_code_value varchar default null,
+    authorization_code_value text default null,
     authorization_code_issued_at timestamp default null,
     authorization_code_expires_at timestamp default null,
-    authorization_code_metadata varchar(2000) default null,
-    access_token_value varchar default null,
+    authorization_code_metadata text default null,
+    access_token_value text default null,
     access_token_issued_at timestamp default null,
     access_token_expires_at timestamp default null,
-    access_token_metadata varchar(2000) default null,
+    access_token_metadata text default null,
     access_token_type varchar(100) default null,
     access_token_scopes varchar(1000) default null,
-    oidc_id_token_value varchar default null,
+    oidc_id_token_value text default null,
     oidc_id_token_issued_at timestamp default null,
     oidc_id_token_expires_at timestamp default null,
-    oidc_id_token_metadata varchar(2000) default null,
-    refresh_token_value varchar default null,
+    oidc_id_token_metadata text default null,
+    refresh_token_value text default null,
     refresh_token_issued_at timestamp default null,
     refresh_token_expires_at timestamp default null,
-    refresh_token_metadata varchar(2000) default null,
+    refresh_token_metadata text default null,
     primary key (id)
 );
 alter table oauth2_authorization owner to authserver;
@@ -98,7 +98,7 @@ create table oauth2_registered_client (
     scopes varchar(1000) not null,
     client_settings varchar(2000) not null,
     token_settings varchar(2000) not null,
-    primary key(id)
+    primary key (id)
 );
 alter table oauth2_registered_client owner to authserver;
 
@@ -151,3 +151,7 @@ comment on column tb_user_info.description is '描述信息';
 comment on column tb_user_info.create_time is '创建时间';
 comment on column tb_user_info.update_time is '更新时间';
 alter table tb_user_info owner to authserver;
+
+-- 初始化超级管理员用户
+insert into tb_user (username, password, on_line, is_lock, is_delete, create_time, update_time) values
+    ('admin', '$2a$10$hb7J3dC9Nzh6zXqTgEVglOcLeTXWM9Fmz5XBCEsmQbeZYAjqexLwa', 0, 0, 0, now(), now());

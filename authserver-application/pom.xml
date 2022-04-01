@@ -51,6 +51,11 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-cas</artifactId>
+        </dependency>
+
         <!-- spring auth server -->
         <dependency>
             <groupId>org.springframework.security</groupId>
