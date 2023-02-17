@@ -153,6 +153,21 @@ comment on column tb_user_info.create_time is '创建时间';
 comment on column tb_user_info.update_time is '更新时间';
 alter table tb_user_info owner to authserver;
 
+
+-- 初始化client信息
+insert into oauth2_registered_client (id, client_id, client_id_issued_at, client_secret, client_secret_expires_at, client_name, client_authentication_methods, authorization_grant_types, redirect_uris, scopes, client_settings, token_settings) values
+    ('419e5e39b6be4e7483e4a1c1d041ac81',
+     'zju',
+     '2023-02-17 17:08:17.338658',
+     '{noop}Abc123++',
+     NULL,'zju',
+     'client_secret_basic',
+     'refresh_token,client_credentials,
+     authorization_code','https://www.baidu.com',
+     'openid,profile,message.read,message.write',
+     '{""@class"":""java.util.Collections$UnmodifiableMap"",""settings.client.jwk-set-url"":""http://127.0.0.1/oauth2/jwks"",""settings.client.require-authorization-consent"":true,""settings.client.require-proof-key"":false}',
+     '{""@class"":""java.util.Collections$UnmodifiableMap"",""settings.token.reuse-refresh-tokens"":false,""settings.token.id-token-signature-algorithm"":[""org.springframework.security.oauth2.jose.jws.SignatureAlgorithm"",""RS256""],""settings.token.access-token-time-to-live"":[""java.time.Duration"",7200.000000000],""settings.token.access-token-format"":{""@class"":""org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat"",""value"":""self-contained""},""settings.token.refresh-token-time-to-live"":[""java.time.Duration"",10800.000000000],""settings.token.authorization-code-time-to-live"":[""java.time.Duration"",3600.000000000]}')
+
 -- 初始化超级管理员用户
 insert into tb_user (username, password, on_line, is_lock, is_delete, create_time, update_time) values
     ('admin', '{bcrypt}$2a$10$hb7J3dC9Nzh6zXqTgEVglOcLeTXWM9Fmz5XBCEsmQbeZYAjqexLwa', 0, 0, 0, now(), now());
