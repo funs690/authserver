@@ -1,5 +1,6 @@
 package com.zjuici.authserver.application.config;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.*;
@@ -10,8 +11,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collections;
@@ -25,6 +24,8 @@ import java.util.Map;
  * @date Create in 2022/4/1 15:27
  */
 public class ClientSecretBasicAuthenticationConverter implements AuthenticationConverter {
+
+
     @Override
     public Authentication convert(HttpServletRequest request) {
         String header = request.getHeader(HttpHeaders.AUTHORIZATION);
@@ -99,4 +100,6 @@ public class ClientSecretBasicAuthenticationConverter implements AuthenticationC
         });
         return parameters;
     }
+
+
 }

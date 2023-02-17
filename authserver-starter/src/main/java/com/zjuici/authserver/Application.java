@@ -1,6 +1,5 @@
 package com.zjuici.authserver;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
@@ -11,7 +10,6 @@ import org.springframework.boot.context.ApplicationPidFileWriter;
  * @title: Application
  * @date 2021/12/29 14:01
  */
-@MapperScan(basePackages = "com.zjuici.authserver.infrastructure.persistent.**.dao.**")
 @SpringBootApplication
 public class Application {
 

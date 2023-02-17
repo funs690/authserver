@@ -2,7 +2,7 @@ package com.zjuici.authserver.application.service.biz.user.impl;
 
 import com.zjuici.authserver.domain.entity.User;
 import com.zjuici.authserver.domain.repository.UserRepository;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +19,7 @@ import java.util.List;
  * @title: UserDetailsServiceImpl
  * @date 2021/12/30 17:47
  */
-@Log4j2
+@Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

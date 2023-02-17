@@ -1,18 +1,14 @@
 package com.zjuici.authserver.infrastructure.persistent.dao;
 
-
 import com.zjuici.authserver.infrastructure.persistent.dos.UserDO;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserDao extends BaseDao<UserDO> {
-    int deleteByPrimaryKey(String id);
-
-    int insert(UserDO record);
-
-    int insertSelective(UserDO record);
-
-    UserDO selectByPrimaryKey(String id);
-
-    int updateByPrimaryKeySelective(UserDO record);
-
-    int updateByPrimaryKey(UserDO record);
+/**
+ * @ClassName UserDao
+ * @Description TODO
+ * @Author fuzeqiang
+ * @Date 2023/2/17 16:06
+ * @Version 1.0
+ */
+public interface UserDao extends JpaRepository<UserDO, String> {
 }

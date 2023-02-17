@@ -1,25 +1,32 @@
 package com.zjuici.authserver.infrastructure.persistent.dos;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * tb_user
- * @author 
+ * @ClassName UserDO
+ * @Description TODO
+ * @Author fuzeqiang
+ * @Date 2023/2/17 16:00
+ * @Version 1.0
  */
 @Data
+@Entity
+@Table(name = "tb_user")
 public class UserDO implements Serializable {
 
     /**
      * uuid
      */
-    private static final long serialVersionUID = -7841883258790305780L;
+    @Serial
+    private static final long serialVersionUID = -1622765027199098469L;
 
-    /**
-     * 唯一键
-     */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private String id;
 
     /**

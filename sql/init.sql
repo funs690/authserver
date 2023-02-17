@@ -51,6 +51,7 @@ create table oauth2_authorization (
     registered_client_id varchar(100) not null,
     principal_name varchar(200) not null,
     authorization_grant_type varchar(100) not null,
+    authorized_scopes varchar(1000) DEFAULT NULL,
     attributes text default null,
     state varchar(500) default null,
     authorization_code_value text default null,

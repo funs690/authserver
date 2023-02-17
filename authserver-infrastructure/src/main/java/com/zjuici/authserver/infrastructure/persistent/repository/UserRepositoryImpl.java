@@ -3,15 +3,14 @@ package com.zjuici.authserver.infrastructure.persistent.repository;
 import com.zjuici.authserver.domain.entity.User;
 import com.zjuici.authserver.domain.repository.UserRepository;
 import com.zjuici.authserver.infrastructure.conveter.UserConveter;
-import com.zjuici.authserver.infrastructure.persistent.condition.UserDOCondition;
 import com.zjuici.authserver.infrastructure.persistent.dao.UserDao;
 import com.zjuici.authserver.infrastructure.persistent.dao.UserInfoDao;
 import com.zjuici.authserver.infrastructure.persistent.dos.UserDO;
-import com.zjuici.authserver.infrastructure.util.CollectionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
-import java.util.List;
+import java.util.Optional;
 
 /**
  * @author fuzeqiang
@@ -25,14 +24,14 @@ public class UserRepositoryImpl implements UserRepository {
     /**
      * 用户dao
      */
-    @Resource
+    @Autowired
     private UserDao userDao;
 
 
     /**
      * 用户信息dao
      */
-    @Resource
+    @Autowired
     private UserInfoDao userInfoDao;
 
 
@@ -44,11 +43,9 @@ public class UserRepositoryImpl implements UserRepository {
      */
     @Override
     public User findUser(String username) {
-        UserDOCondition userDOCondition = UserDOCondition.builder().userName(username).build();
-        List<UserDO> userDOList = userDao.getListByCondition(userDOCondition);
-        if (CollectionUtil.isEmpty(userDOList)){
-            return null;
-        }
-        return UserConveter.conveter(userDOList.get(0));
+        UserDO userDO = new UserDO();
+        userDO.setUsername(username);
+        Optional<UserDO> userInfo = userDao.findOne(Example.of(userDO));
+        return UserConveter.conveter(userInfo.get());
     }
 }
