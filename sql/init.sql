@@ -155,4 +155,4 @@ alter table tb_user_info owner to authserver;
 
 -- 初始化超级管理员用户
 insert into tb_user (username, password, on_line, is_lock, is_delete, create_time, update_time) values
-    ('admin', '$2a$10$hb7J3dC9Nzh6zXqTgEVglOcLeTXWM9Fmz5XBCEsmQbeZYAjqexLwa', 0, 0, 0, now(), now());
+    ('admin', '{bcrypt}$2a$10$hb7J3dC9Nzh6zXqTgEVglOcLeTXWM9Fmz5XBCEsmQbeZYAjqexLwa', 0, 0, 0, now(), now());
