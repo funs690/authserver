@@ -7,7 +7,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://183.129.217.214:20080/authserverdb
+    url: jdbc:postgresql://127.0.0.1:5432/authserverdb
     username: authserver
     password: Abc123++
     hikari:
